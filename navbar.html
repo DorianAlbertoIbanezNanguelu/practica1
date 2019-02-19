@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="archivo.css">
+<body>
+
+<div id="mySidenav" class="navbar">
+        <a href="javascript:void(0)" id="closebtn" class="closebtn" onclick="closeNav()">X</a>
+<ul class="sidenav">
+    <li> <a id="menu1" href="javascript:;" click="menu1()"> Menu 1 </a> </li>
+    <li> <a id="menu2" href="javascript:;" > Menu 2</a> </li>
+    <li> <a id="menu3" href="javascript:;" > Menu 3</a> </li>
+    <li> <a id="cerrar" href="javascript:;" > Cerrar menus</a> </li>
+</ul> 
+</div>
+<div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Abrir Menu</span>
+<div id="contenido1" class="content oculto">
+    <p>Hola mundo 1</p>
+    <img class="imagen" src="img1.png" >
+</div>
+
+<div id="contenido2" class="content oculto">
+    <p>Hola mundo 2</p>
+    <img class="imagen" src="img2.png" >
+</div>
+
+<div id="contenido3" class="content oculto">
+    <p>Hola mundo 3</p>
+    <img class="imagen" src="img3.png" >
+</div>
+</div>
+</body>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "20%";
+  document.getElementById("main").style.marginLeft = "20%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+
+$(document).ready(function(){
+  $("#menu1").click(function(){
+    $("#menu1").addClass("active");
+    $("#menu2").removeClass("active")
+    $("#menu3").removeClass("active")
+    $("#contenido1").removeClass("oculto")
+    $("#contenido2").addClass("oculto")
+    $("#contenido3").addClass("oculto")
+  });
+  $("#menu2").click(function(){
+    $("#menu1").removeClass("active")
+    $("#menu2").addClass("active");
+    $("#menu3").removeClass("active");
+    $("#contenido2").removeClass("oculto")
+    $("#contenido1").addClass("oculto")
+    $("#contenido3").addClass("oculto")
+  });
+  $("#menu3").click(function(){
+    $("#menu1").removeClass("active")
+    $("#menu2").removeClass("active");
+    $("#menu3").addClass("active");
+    $("#contenido3").removeClass("oculto")
+    $("#contenido1").addClass("oculto")
+    $("#contenido2").addClass("oculto")
+  });
+
+  $("#cerrar").click(function(){
+    $("#menu1").removeClass("active")
+    $("#menu2").removeClass("active");
+    $("#menu3").removeClass("active");
+    $("#contenido3").addClass("oculto")
+    $("#contenido1").addClass("oculto")
+    $("#contenido2").addClass("oculto")
+  });
+});
+
+</script>
+
+</html>
